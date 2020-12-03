@@ -1,0 +1,96 @@
+# Mosquitto
+  # MariaDb
+  mariadb:
+    image: mariadb
+    container_name: mariadb
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${HA_MYSQL_DATABASE}
+      MYSQL_USER: ${HA_MYSQL_USER}
+      MYSQL_PASSWORD: ${HA_MYSQL_PASSWORD}
+	  TZ: Europe/Vilnius
+    user: ${LOCAL_USER}:${LOCAL_USER}
+    volumes:
+      - ./mariadb:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    user: ${LOCAL_USER}:${LOCAL_USER}
+    healthcheck:
+      test: "/usr/bin/mysql --user=${HA_MYSQL_USER} --password=${HA_MYSQL_PASSWORD} --execute \"SHOW DATABASES;\""
+      interval: 60s
+      timeout: 5s
+      retries: 3
+  
+  # mosquitto
+  mosquitto:
+    container_name: mosquitto
+    image: eclipse-mosquitto
+    restart: always
+    ports:
+       - "1883:1883"
+       - "9001:9001"
+    volumes:
+      - ./mosquitto/config/mosquitto.conf:/mosquitto/config/mosquitto.conf
+      - ./mosquitto/data:/mosquitto/data
+      - ./mosquitto/log:/mosquitto/log
+    environment:
+      - TZ=Europe/Vilnius
+
+  # zigbee2mqtt
+  zigbee2mqtt:
+    container_name: zigbee2mqtt
+    depends_on:
+      - mosquitto
+    image: koenkk/zigbee2mqtt
+    volumes:
+      - ./zigbee2mqtt:/app/data
+      - /run/udev:/run/udev:ro
+    devices:
+      - /dev/ttyACM0:/dev/ttyACM0
+    restart: always
+    privileged: true
+    environment:
+      - TZ=Europe/Vilnius
+
+  # zigbee2mqtt assistant
+  zigbee2mqttassistant:
+    container_name: zigbee2mqttassistant
+    depends_on:
+      - zigbee2mqtt
+    image: carldebilly/zigbee2mqttassistant
+    restart: always
+    ports:
+      - 8124:80
+    environment:
+      - Z2MA_SETTINGS__MQTTSERVER=${SERVER_IP}
+      - TZ=Europe/Vilnius  
+	  
+  # home assistant
+  homeassistant:
+    container_name: homeassistant
+    depends_on:
+      - mosquitto
+      - mariadb
+    image: homeassistant/home-assistant
+    volumes:
+      - ./ha:/config
+    environment:
+      - TZ=Europe/Vilnius
+    restart: always
+    ports:
+      - 8123:8123
+
+  # nodered
+  nodered:
+    container_name: nodered
+    image: nodered/node-red
+    ports:
+      - "8125:1880"
+    volumes:
+      - ./nodered:/data
+    depends_on:
+      - homeassistant
+    environment:
+      - TZ=Europe/Vilnius
+    restart: always
