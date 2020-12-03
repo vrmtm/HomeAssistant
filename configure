@@ -11,9 +11,6 @@ mkdir mosquitto/data nodered mariadb
 
 chmod o+w ./mosquitto/data
 chown 1883:1883 ./mosquitto/data -R
-chmod o+w ./mosquitto/log
-chmod o+w ./mosquitto/log/mosquitto.log
-chown 1883:1883 ./mosquitto/log -R
 chmod o+w ./mariadb
 chmod o+w ./nodered
 chmod +x restart
