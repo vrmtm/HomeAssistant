@@ -18,10 +18,10 @@ chmod o+w ./mariadb
 chmod o+w ./nodered
 chmod +x restart
 
-sed -i "s/\${SERVER_IP}/"`cat .env | grep SERVER_IP= | cut -d '=' -f2`"/" zigbee2mqtt/configuration.yaml
-sed -i "s/\${HA_MYSQL_USER}/"`cat .env | grep HA_MYSQL_USER= | cut -d '=' -f2`"/" ha/configuration.yaml
-sed -i "s/\${HA_MYSQL_PASSWORD}/"`cat .env | grep HA_MYSQL_PASSWORD= | cut -d '=' -f2`"/" ha/configuration.yaml
-sed -i "s/\${HA_MYSQL_DATABASE}/"`cat .env | grep HA_MYSQL_DATABASE= | cut -d '=' -f2`"/" ha/configuration.yaml
-sed -i "s/\${SERVER_IP}/"`cat .env | grep SERVER_IP= | cut -d '=' -f2`"/" ha/configuration.yaml
+sed -i "s/\${SERVER_IP}/"`awk -F'=' '/SERVER_IP=/ {print $2}' .env`"/" zigbee2mqtt/configuration.yaml
+sed -i "s/\${HA_MYSQL_USER}/"`awk -F'=' '/HA_MYSQL_USER=/ {print $2}' .env`"/" ha/configuration.yaml
+sed -i "s/\${HA_MYSQL_PASSWORD}/"`awk -F'=' '/HA_MYSQL_PASSWORD=/ {print $2}' .env`"/" ha/configuration.yaml
+sed -i "s/\${HA_MYSQL_DATABASE}/"`awk -F'=' '/HA_MYSQL_DATABASE=/ {print $2}' .env`"/" ha/configuration.yaml
+sed -i "s/\${SERVER_IP}/"`awk -F'=' '/SERVER_IP=/ {print $2}' .env`"/" ha/configuration.yaml
 
 echo "Done!"
