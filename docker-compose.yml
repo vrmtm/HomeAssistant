@@ -2,7 +2,7 @@ version: '3'
 services:
   # MariaDb
   mariadb:
-    image: mariadb
+    image: jsurf/rpi-mariadb
     container_name: mariadb
     restart: always
     environment:
@@ -32,7 +32,6 @@ services:
     volumes:
       - ./mosquitto/config/mosquitto.conf:/mosquitto/config/mosquitto.conf
       - ./mosquitto/data:/mosquitto/data
-      - ./mosquitto/log:/mosquitto/log
     environment:
       - TZ=Europe/Vilnius
 
