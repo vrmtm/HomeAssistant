@@ -92,3 +92,4 @@ services:
     environment:
       - TZ=Europe/Vilnius
     restart: always
+    user: ${LOCAL_USER}:${LOCAL_USER}
