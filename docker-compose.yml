@@ -11,7 +11,6 @@ services:
       MYSQL_USER: ${HA_MYSQL_USER}
       MYSQL_PASSWORD: ${HA_MYSQL_PASSWORD}
 	  TZ: Europe/Vilnius
-    user: ${LOCAL_USER}:${LOCAL_USER}
     volumes:
       - ./mariadb:/var/lib/mysql
     ports:
@@ -66,7 +65,6 @@ services:
     environment:
       - Z2MA_SETTINGS__MQTTSERVER=${SERVER_IP}
       - TZ=Europe/Vilnius  
-	  
   # home assistant
   homeassistant:
     container_name: homeassistant
