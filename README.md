@@ -11,7 +11,9 @@ sudo ./configure
 ...
 
 IP:8123 - Home Assistant
+
 IP:8124 - Zigbee2MqttAssistant
+
 IP:8125 - Node-RED
 
 ...
