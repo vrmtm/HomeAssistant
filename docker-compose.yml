@@ -10,12 +10,11 @@ services:
       MYSQL_DATABASE: ${HA_MYSQL_DATABASE}
       MYSQL_USER: ${HA_MYSQL_USER}
       MYSQL_PASSWORD: ${HA_MYSQL_PASSWORD}
-	  TZ: Europe/Vilnius
+      TZ: Europe/Vilnius
     volumes:
       - ./mariadb:/var/lib/mysql
     ports:
       - "3306:3306"
-    user: ${LOCAL_USER}:${LOCAL_USER}
     healthcheck:
       test: "/usr/bin/mysql --user=${HA_MYSQL_USER} --password=${HA_MYSQL_PASSWORD} --execute \"SHOW DATABASES;\""
       interval: 60s
