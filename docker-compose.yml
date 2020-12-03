@@ -1,4 +1,5 @@
-# Mosquitto
+version: '3'
+services:
   # MariaDb
   mariadb:
     image: mariadb
@@ -22,7 +23,7 @@
       timeout: 5s
       retries: 3
   
-  # mosquitto
+  # Mosquitto
   mosquitto:
     container_name: mosquitto
     image: eclipse-mosquitto
