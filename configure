@@ -15,6 +15,7 @@ chmod o+w ./mosquitto/log
 chmod o+w ./mosquitto/log/mosquitto.log
 chown 1883:1883 ./mosquitto/log -R
 chmod o+w ./mariadb
+chmod o+w ./nodered
 chmod +x restart
 
 sed -i "s/\${SERVER_IP}/"`cat .env | grep SERVER_IP= | cut -d '=' -f2`"/" zigbee2mqtt/configuration.yaml
