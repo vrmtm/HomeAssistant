@@ -13,5 +13,11 @@ recorder:
   db_url: "mysql://${HA_MYSQL_USER}:${HA_MYSQL_PASSWORD}@${SERVER_IP}:3306/${HA_MYSQL_DATABASE}?charset=utf8"
 
 mqtt:
-  discovery: false
+  discovery: true
   broker: ${SERVER_IP}
+  birth_message:
+    topic: 'hass/status'
+    payload: 'online'
+  will_message:
+    topic: 'hass/status'
+    payload: 'offline'
