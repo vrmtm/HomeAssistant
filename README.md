@@ -1,4 +1,4 @@
-# RPi3*, Home Assistant, MariaDB, Zigbee2MQTT, Mosquitto, Zigbee2MqttAssistant, Node-RED
+# RPi3*, Home Assistant, MariaDB, Mosquitto, Zigbee2MQTT, Zigbee2MqttAssistant, Node-RED
 
 Change .env variables.
 
