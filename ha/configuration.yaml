@@ -9,7 +9,7 @@ script: !include scripts.yaml
 scene: !include scenes.yaml
 
 recorder:
-  purge_keep_days: 7
+  purge_keep_days: 3
   db_url: "mysql://${HA_MYSQL_USER}:${HA_MYSQL_PASSWORD}@${SERVER_IP}:3306/${HA_MYSQL_DATABASE}?charset=utf8"
 
 mqtt:
