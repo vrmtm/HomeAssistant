@@ -8,6 +8,9 @@ automation: !include automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
 
+frontend:
+  themes: !include_dir_merge_named themes
+
 recorder:
   purge_keep_days: 3
   db_url: "mysql://${HA_MYSQL_USER}:${HA_MYSQL_PASSWORD}@${SERVER_IP}:3306/${HA_MYSQL_DATABASE}?charset=utf8"
