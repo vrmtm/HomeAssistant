@@ -7,7 +7,7 @@ fi
 
 echo "Start..."
 
-mkdir mosquitto/data nodered mariadb
+mkdir mosquitto/data mariadb
 
 chmod o+w ./mosquitto/data
 chown 1883:1883 ./mosquitto/data -R
