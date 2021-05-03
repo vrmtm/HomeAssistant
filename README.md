@@ -2,7 +2,7 @@
 
 Change .env variables.
 
-sudo chmod +x configure
+sudo chmod +x configure restart  
 
 sudo ./configure
 
