@@ -75,9 +75,6 @@ services:
     environment:
       - TZ=Europe/Vilnius
     restart: always
-    networks:
-      ha_net:
-        ipv4_address: 192.168.1.2
     ports:
       - 8123:8123
     logging:
@@ -99,11 +96,3 @@ services:
     environment:
       - TZ=Europe/Vilnius
     restart: always
-
-# HA network
-networks:
-  ha_net:
-    ipam:
-      driver: default
-      config:
-        - subnet: 192.168.1.0/29
