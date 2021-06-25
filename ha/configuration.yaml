@@ -2,6 +2,9 @@ default_config:
 
 tts:
   - platform: google_translate
+  #use_x_forwarded_for: true
+  #trusted_proxies:
+  #- ${SERVER_IP}
 
 group: !include groups.yaml
 automation: !include automations.yaml
@@ -15,11 +18,6 @@ recorder:
   purge_keep_days: 4
   db_url: "mysql://${HA_MYSQL_USER}:${HA_MYSQL_PASSWORD}@${SERVER_IP}:3306/${HA_MYSQL_DATABASE}?charset=utf8"
   
-#http:
-#  use_x_forwarded_for: true
-#  trusted_proxies:
-#    - ${SERVER_IP}
-
 mqtt:
   discovery: true
   broker: ${SERVER_IP}
