@@ -8,9 +8,6 @@ http:
 
 tts:
   - platform: google_translate
-  #use_x_forwarded_for: true
-  #trusted_proxies:
-  #- ${SERVER_IP}
 
 group: !include groups.yaml
 automation: !include automations.yaml
