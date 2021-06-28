@@ -101,9 +101,9 @@ services:
     restart: always
 
 # HA network
-  networks:
-    ha_net:
-      ipam:
-        driver: default
-        config:
-          - subnet: 192.168.1.0/29
+networks:
+  ha_net:
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.1.0/29
