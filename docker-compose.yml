@@ -69,7 +69,7 @@ services:
     depends_on:
       - mosquitto
       - mariadb
-    image: homeassistant/raspberrypi3-homeassistant
+    image: homeassistant/home-assistant
     volumes:
       - ./ha:/config
     environment:
