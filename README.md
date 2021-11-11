@@ -1,4 +1,4 @@
-# RPi3* + CC2531, Home Assistant, MariaDB, Mosquitto, Zigbee2MQTT, Zigbee2MqttAssistant, Node-RED
+# RPi + CC2531, Home Assistant, MariaDB, Mosquitto, Zigbee2MQTT, Zigbee2MqttAssistant, Node-RED
 
 Change .env variables.
 
@@ -19,5 +19,3 @@ IP:8125 - Node-RED
 ...
 
 Node-RED >> Manage palette >> node-red-contrib-home-assistant-websocket
-
-* Change Home Assistant Docker image if necessary (docker-compose.yml)
