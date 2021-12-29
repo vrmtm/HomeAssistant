@@ -6,4 +6,9 @@ mqtt:
 serial:
   port: /dev/ttyACM0
 advanced:
+  # Optional: ZigBee pan ID (default: shown below)
+  pan_id: 0x1a62
+  # Optional: Zigbee extended pan ID (default: shown below)
+  ext_pan_id: [0xDD, 0xDD, 0xDD, 0xDD, 0xDD, 0xDD, 0xDD, 0xDD]
+  channel: 25  
   network_key: GENERATE
