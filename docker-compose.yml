@@ -47,22 +47,12 @@ services:
     devices:
       - /dev/ttyACM0:/dev/ttyACM0
     restart: always
+    ports:
+       - "8124:10021"
     privileged: true
     environment:
       - TZ=Europe/Vilnius
 
-  # zigbee2mqtt assistant
-  zigbee2mqttassistant:
-    container_name: zigbee2mqttassistant
-    depends_on:
-      - zigbee2mqtt
-    image: carldebilly/zigbee2mqttassistant
-    restart: always
-    ports:
-      - 8124:80
-    environment:
-      - Z2MA_SETTINGS__MQTTSERVER=${SERVER_IP}
-      - TZ=Europe/Vilnius  
   # home assistant
   homeassistant:
     container_name: homeassistant
