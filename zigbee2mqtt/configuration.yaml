@@ -10,5 +10,5 @@ advanced:
   pan_id: 0x1a62
   # Optional: Zigbee extended pan ID (default: shown below)
   ext_pan_id: [0xDD, 0xDD, 0xDD, 0xDD, 0xDD, 0xDD, 0xDD, 0xDD]
-  channel: 25  
+  channel: 20  
   network_key: GENERATE
