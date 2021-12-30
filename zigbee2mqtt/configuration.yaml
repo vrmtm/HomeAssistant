@@ -1,10 +1,14 @@
 homeassistant: true
+# After setup change to false (default: shown below)
 permit_join: true
 mqtt:
   base_topic: zigbee2mqtt
   server: 'mqtt://${SERVER_IP}:1883'
 serial:
   port: /dev/ttyACM0
+frontend:
+  port: 8080
+  host: 0.0.0.0
 advanced:
   # Optional: ZigBee pan ID (default: shown below)
   pan_id: 0x1a62
@@ -12,3 +16,7 @@ advanced:
   ext_pan_id: [0xDD, 0xDD, 0xDD, 0xDD, 0xDD, 0xDD, 0xDD, 0xDD]
   channel: 20  
   network_key: GENERATE
+  homeassistant_legacy_entity_attributes: false
+  legacy_api: false
+device_options:
+  legacy: false
