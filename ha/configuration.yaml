@@ -1,4 +1,31 @@
-default_config:
+cloud:
+config:
+counter:
+#dhcp:
+#energy:
+history:
+image:
+input_boolean:
+input_datetime:
+input_number:
+input_select:
+input_text:
+logbook:
+#map:
+#media_source:
+mobile_app:
+my:
+person:
+#ssdp:
+stream:
+sun:
+system_health:
+tag:
+timer:
+usb:
+webhook:
+#zeroconf:
+zone:
 
 http:
   server_port: 8123
@@ -20,13 +47,3 @@ frontend:
 recorder:
   purge_keep_days: 4
   db_url: "mysql://${HA_MYSQL_USER}:${HA_MYSQL_PASSWORD}@${SERVER_IP}:3306/${HA_MYSQL_DATABASE}?charset=utf8"
-  
-mqtt:
-  discovery: true
-  broker: ${SERVER_IP}
-  birth_message:
-    topic: 'hass/status'
-    payload: 'online'
-  will_message:
-    topic: 'hass/status'
-    payload: 'offline'
