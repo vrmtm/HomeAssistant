@@ -45,7 +45,7 @@ services:
       - ./zigbee2mqtt:/app/data
       - /run/udev:/run/udev:ro
     devices:
-      - /dev/ttyACM0:/dev/ttyACM0
+      - /dev/ttyUSB0:/dev/ttyUSB0
     restart: always
     ports:
        - "8124:10021"
